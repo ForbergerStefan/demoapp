@@ -1,9 +1,26 @@
 package com.example.demo.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "event")
+
 public class Event {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue
+    private int id;
+
+    @Column(name = "place")
     private String place;
+
+    @Column(name = "count")
     private int  count;
+    @Column(name = "maxPeople")
+    private int maxPeople;
 
 
     public String getPlace() {
@@ -19,9 +36,15 @@ public class Event {
     }
 
     public void setCount(int count) {
-        if (count>0){
             this.count = count;
-
         }
+
+    public int getMaxPeople() {
+        return maxPeople;
+    }
+
+    public void setMaxPeople(int maxPeople) {
+        this.maxPeople = maxPeople;
     }
 }
+

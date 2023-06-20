@@ -14,11 +14,8 @@ public class Service {
         Event event = new Event();
         event.setPlace("IBM Academy, Protifašistických bojovníkov 11, 04001, Košice");
         event.setCount(25);
+        event.setMaxPeople(50);
         eventList.add(event);
-        Event nextevent = new Event();
-        nextevent.setPlace("IBM AWS, Protifašistických bojovníkov 11, 04001, Košice");
-        nextevent.setCount(10);
-        eventList.add(nextevent);
     }
 
     public List<Event> getEventList() {
