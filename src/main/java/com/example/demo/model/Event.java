@@ -3,6 +3,9 @@ package com.example.demo.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "event")
@@ -21,6 +24,9 @@ public class Event {
     private int  count;
     @Column(name = "maxPeople")
     private int maxPeople;
+
+    @ManyToMany(mappedBy = "eventSet")
+    private Set<Users> usersSet = new HashSet<>();
 
 
     public String getPlace() {
@@ -45,6 +51,18 @@ public class Event {
 
     public void setMaxPeople(int maxPeople) {
         this.maxPeople = maxPeople;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", place='" + place + '\'' +
+                ", count=" + count +
+                ", maxPeople=" + maxPeople +
+                '}';
     }
 }
 

@@ -34,7 +34,8 @@ public class EventController {
         @PostMapping("/findPlace")
         public String findPlace(Model model, @RequestParam String place){
                 model.addAttribute("eventInPlace", dbService.getEventBasedOnPlace(place));
-                model.addAttribute("EventList", service.getEventList());
+                model.addAttribute("EventList", dbService.getAllEvents());
+                model.addAttribute("partyEvent", new Event());
                 return "events";
         }
 
